@@ -1,3 +1,4 @@
+// router 是路由器
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home/Home.vue'
