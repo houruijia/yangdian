@@ -1,12 +1,13 @@
 <template>
-	<div class="ShopCar">
+	<div class="shopCar">
 		我是购物车
 		<MenuBar></MenuBar>
 	</div>
+	
 </template>
 <script>
 	export default{
-		name:"ShopCar"
+		name:"shopCar"
 	}
 </script>
 <style scoped>

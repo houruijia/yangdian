@@ -3,8 +3,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home/Home.vue'
 import Classify from './pages/Classify/Classify.vue'
-import ShopCar from './pages/ShopCar/ShopCar.vue'
+import shopCar from './pages/shopCar/shopCar.vue'
 import User from './pages/User/User.vue'
+import SearchPage from './pages/SearchPage.vue'
 Vue.use(Router)
 export default new Router({
   mode:'history',
@@ -21,14 +22,19 @@ export default new Router({
     component:Classify
   },
   {
-    path:'/ShopCar',
-    name:'ShopCar',
-    component:ShopCar
+    path:'/shopCar',
+    name:'shopCar',
+    component:shopCar
   },
   {
     path:'/User',
     name:'User',
     component:User
+  },
+  {
+    path:'/SearchPage',
+    name:'SearchPage',
+    component:SearchPage
   }
   ]
 })

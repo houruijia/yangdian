@@ -1,12 +1,16 @@
 <template>
 	<div class="Home">
-		我是首页
+		<Search></Search>
 		<MenuBar></MenuBar>
 	</div>
 </template>
 <script>
+	import Search from '../.././components/Search.vue'
 	export default{
-		name:"Home"
+		name:"Home",
+		components:{
+			Search
+		}
 	}
 </script>
 <style scoped>

@@ -15,7 +15,7 @@
 				</router-link>
 			</li>
 			<li>
-				<router-link to="/ShopCar">
+				<router-link to="/shopCar">
 					<span class="iconfont">&#xe606;</span>
 					<span class="text">购物车</span>
 				</router-link>
