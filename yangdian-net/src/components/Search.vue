@@ -2,7 +2,7 @@
 	<div class="Search">
 		<form>
 			<input class="text" type="text" placeholder="Montagne jeunesse" @click="handelClick()">
-			<span class="iconfont btn">&#xe627;</span>
+			<span class="iconfont btn" @click="handelClick()">&#xe60b;</span>
 		</form>
 	</div>
 </template>
@@ -25,10 +25,7 @@
 		margin: 0 auto;
 		overflow: hidden;
 		border-radius: 12px;
-		background: orange;
 		opacity: 0.7;
-		
-		
 	}
 	.Search form .text{
 		width: 436px;
@@ -42,9 +39,9 @@
 		width: 60px;
 		height: inherit;
 		float: left;
+		background:#fff;
 		font-size: 40px;
 		text-alien: center;
 		line-height: 62px;
 	}
-
 </style>

@@ -1,18 +1,33 @@
 <template>
 	<div class="Home">
-		<Search></Search>
+		<Search class="search"></Search>
+		<banner class="banner"></banner>
 		<MenuBar></MenuBar>
 	</div>
 </template>
 <script>
 	import Search from '../.././components/Search.vue'
+	import banner from './components/banner.vue'
 	export default{
 		name:"Home",
 		components:{
-			Search
+			Search,
+			banner
 		}
 	}
 </script>
 <style scoped>
-	
+	.Home .banner{
+		position : absolute;
+		z-index: 1;
+	}
+	.Home .search{
+		position: absolute;
+		z-index:2;
+
+		left: 0;
+		right: 0;
+		margin: 14px auto 0px auto;
+
+	}
 </style>
