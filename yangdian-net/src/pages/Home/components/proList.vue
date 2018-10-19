@@ -22,11 +22,11 @@
 									<img :src="item.imgUrl">
 								</div>
 								<div class="price">
-									<span class="new_price">{{item.new_price}}</span>
-									<span class="old_price">{{item.old_price}}</span>
+									<span class="new_price">{{item.new_price |floatNum|rmb}}</span>
+									<span class="old_price">{{item.old_price |floatNum|rmb}}</span>
 								</div>
 								<p>
-									{{item.proInfo}}
+									{{item.proInfo |ellipsis}}
 								</p>
 							</router-link>
 						</li>	
@@ -52,6 +52,20 @@
 		components: {
 			swiper,
 			swiperSlide
+		},
+		filters:{
+			floatNum(val){
+				return val.toFixed(2)
+			},
+			rmb(val){
+				return "￥"+val
+			},
+			ellipsis(val){
+				var num =20
+				if (val.length > num) {
+					return val.substring(0,num)+"..."
+				}
+			}
 		}
 	}
 </script>
@@ -66,7 +80,7 @@
 	}
 	.proList h2 span{
 		font-size: 38px;
-		color:#ff9900;
+		
 	}
 	.proList .proList_items{
 		display: flex;
@@ -105,7 +119,8 @@
 	}
 	.proList .proList_item .old_price{
 		font-size: 28px;
-		color: #666666;
+		color: #000;
+		text-decoration: line-through;
 	}
 	.proList .proList_item p{
 		padding: 0 38px;

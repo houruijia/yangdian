@@ -37,10 +37,14 @@
 
 <style scoped>
 	.MenuBar{
+		margin-top: 100px;
 		width:100%;
 		height: 100px;
 		position: fixed;
 		bottom: 0;
+		z-index: 999;
+		border-top: 1px solid;
+		background: #fff;
 	}
 	.MenuBar ul{
 		width: inherit;
