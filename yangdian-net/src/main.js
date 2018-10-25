@@ -7,13 +7,21 @@ import router from './router'
 import global_menuBar from './plugins/global_menuBar.js'
  // vue-cli @vue/cli将px转换成rem单位配置
 import 'lib-flexible/flexible.js'
+
+import VueTouch from 'vue-touch'
+
 // 插入样式
 import './style/common.css'
 import './style/iconfont.css'
 Vue.config.productionTip=false
 
 Vue.use(global_menuBar)
+Vue.use(VueTouch, {name: 'v-touch'})
+VueTouch.config.swipe = {
 
+             threshold: 100 //手指左右滑动距离
+
+        }
 new Vue({
 	router,
 	render: h => h(App)

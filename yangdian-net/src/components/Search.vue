@@ -26,6 +26,7 @@
 		overflow: hidden;
 		border-radius: 12px;
 		opacity: 0.7;
+		z-index: 98;
 	}
 	.Search form .text{
 		width: 436px;
@@ -41,7 +42,7 @@
 		float: left;
 		background:#fff;
 		font-size: 40px;
-		text-alien: center;
+		text-align: center;
 		line-height: 62px;
 	}
 </style>
