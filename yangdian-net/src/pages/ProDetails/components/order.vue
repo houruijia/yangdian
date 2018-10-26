@@ -82,6 +82,7 @@
 					"ProNums":this.text,
 					"checked":false
 				}
+				// 将数据传到本地离线存储
 				this.arr.push(proItems)
 				localStorage.setItem("proItems",JSON.stringify(this.arr))
 				this.$emit('close')

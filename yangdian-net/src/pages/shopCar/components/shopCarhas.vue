@@ -27,20 +27,20 @@
 								<span>{{item.Proprice}}</span>
 							</div>
 						</div>
-							<div class="remove">删除</div>
+							<div class="remove" @click="remove(index)">删除</div>
 					</div>
 				</v-touch>
 			</li>
 		</ul>
 		<div class="computed">
 			<label class="allChecked" @click="allChecked()">
-				<b :class="isChecked===true?'active':null" @click="isChecked =!isChecked"></b>
+				<b :class="isChecked===true?'active':null"></b>
 				<input type="checkbox" :checked="isChecked">
 				<span>全选</span>
 			</label>
 			<label class="edit">
 				<b></b>
-				<input type="checkbox" :checked="isChecked">
+				<input type="checkbox">
 				<span>编辑</span>
 			</label>
 			<div class="total">
@@ -56,7 +56,7 @@
 		name:"shopCarhas",
 		data(){
 			return{
-				isChecked:false,
+			
 				proList:[]
 			}
 		},
@@ -70,13 +70,17 @@
 			allChecked(){
 				var that = this
 				this.proList.forEach(function(item,i){
-					if (that.isChecked) {
+					// if (that.isChecked) {
 							that.proList[i].checked=true
-						}else{
-							that.proList[i].checked=false
-						}
+						// }else{
+							// that.proList[i].checked=false
+						// }
 				})
 
+			},
+			remove(i){
+				this.proList.splice(i,1)
+				localStorage.setItem("proItems",JSON.stringify(this.proList))
 			}
 		},
 		mounted(){
@@ -87,12 +91,21 @@
 			alltotal(){
 			var total = 0
 			var that = this
-				this.proList.forEach(function(item,i){
+				this.proList.forEach(function(item,i){ 
 					if (that.proList[i].checked) {
 						total += item.ProNums*item.Proprice
 					}
 				})
 				return total
+			},
+			isChecked(){
+				var bool =true
+				this.proList.forEach(function(item){
+					if (item.checked === false) {
+						bool = false
+					}
+				})
+				return bool
 			}
 		}
 	}
@@ -101,6 +114,7 @@
 	.shopCarhas{
 		width: 750px;
 		position: relative;
+		padding-bottom: 220px;
 	}
 	.shopCarhas ul li{
 		height: 328px;
@@ -219,6 +233,8 @@
 		padding-left: 56px;
 		position: fixed;
 		bottom: 98px;
+		background: #fff;
+		
 	}
 	.shopCarhas .computed .allChecked{
 		width: 60px;
@@ -267,5 +283,4 @@
 		background: #ff5500;
 		font-size: 37px;
 	}
-
 </style>

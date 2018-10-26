@@ -9,6 +9,8 @@ import ProDetails from './pages/ProDetails/ProDetails.vue'
 import detailsPage from './pages/ProDetails/components/detailsPage.vue' 
 import publicPraise from './pages/ProDetails/components/publicPraise.vue'
 import SearchPage from './pages/SearchPage.vue'
+import register from './pages/register.vue'
+import login from './pages/login.vue'
 
 Vue.use(Router)
 
@@ -55,6 +57,16 @@ export default new Router({
     path:'/SearchPage',
     name:'SearchPage',
     component:SearchPage
+  },
+  {
+    path:'/register',
+    name:'register',
+    component:register
+  },
+  {
+    path:'/login',
+    name:'login',
+    component:login
   }
   ]
 })
