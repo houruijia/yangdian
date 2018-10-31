@@ -1,6 +1,6 @@
 <template>
 	<div class="banner">
-		<swiper :options="swiperOption" ref="mySwiper">
+		<swiper v-if="datas.length>1" :options="swiperOption" ref="mySwiper">
 		    <!-- slides -->
 		    <swiper-slide v-for="item of datas" :key="item.id">
 		    	<img :src="require(`@/images/Home/${item.url}.jpg`)" class="image-item">
