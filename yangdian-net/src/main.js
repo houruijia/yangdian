@@ -10,13 +10,15 @@ import 'lib-flexible/flexible.js'
 
 import VueTouch from 'vue-touch'
 
+// import store from './pages/store/index.js'
+
 // 插入样式
 import './style/common.css'
 import './style/iconfont.css'
 Vue.config.productionTip=false
 
 Vue.use(global_menuBar)
-Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(VueTouch,{name: 'v-touch'})
 VueTouch.config.swipe = {
 
              threshold: 100 //手指左右滑动距离
@@ -24,6 +26,7 @@ VueTouch.config.swipe = {
         }
 new Vue({
 	router,
+	// store,
 	render: h => h(App)
 }).$mount('#app')
 

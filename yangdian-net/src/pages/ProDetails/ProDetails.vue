@@ -3,12 +3,12 @@
 		<div class="main">
 			<div class="header">
 				<div class="top">
-					<span>&lt;</span>
+					<span class="iconfont">&#xe60e;</span>
 					<div>
 						<router-link to="/shopCar">
 							<span class="iconfont">&#xe606;</span>
 						</router-link>
-						<span>...</span>
+						<span class="iconfont">&#xe637;</span>
 					</div>	
 				</div>		
 				<banner class="banner"></banner>
@@ -16,10 +16,11 @@
 		<div class="info">
 			<div class="title">
 				<p>Aptamil 德国爱他美  婴儿奶粉  2段800/克 3罐装  6-10月</p>
-				<div class="collect">
-					<span class="iconfont">&#xe606;</span>
+				<div class="collect" @click="addClick()">
+					<span class="iconfont">&#xe605;</span>
 					<span>收藏</span>
 				</div>
+				<div @click="reduceClick()">减掉</div>
 			</div>
 			<div class="mes">
 				<div class="price">
@@ -114,6 +115,12 @@
 				setTimeout(function(){
 					that.boolB = false
 				},2000)
+			},
+			addClick(){
+				this.$store.commit('add')
+			},
+			reduceClick(){
+				this.$store.commit('reduce')
 			}
 		}
 	}

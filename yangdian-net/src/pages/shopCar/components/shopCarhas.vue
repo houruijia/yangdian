@@ -3,7 +3,7 @@
 		<ul>
 			<li v-for="(item,index) of proList" :key="item.id">
 				<div class="title">
-					<span class="iconfont">&#xe606;</span>
+					<span class="iconfont">&#xe62c;</span>
 					<p>杭州保税区仓</p>
 				</div>
 				<v-touch @swipeleft="swipeleftFn(index)" @swiperight="swiperightFn(index)" class="vtouch">

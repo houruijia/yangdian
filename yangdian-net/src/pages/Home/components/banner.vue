@@ -2,8 +2,8 @@
 	<div class="banner">
 		<swiper :options="swiperOption" ref="mySwiper">
 		    <!-- slides -->
-		    <swiper-slide v-for="item of imgesList" :key="item.id">
-		    	<img :src="item.url" class="imges">
+		    <swiper-slide v-for="item of datas" :key="item.id">
+		    	<img :src="require(`@/images/Home/${item.url}.jpg`)" class="image-item">
 		    </swiper-slide>
 		    <!-- Optional controls -->
 		    <div class="swiper-pagination"  slot="pagination"></div>
@@ -15,26 +15,15 @@
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	export default{
 		name:"banner",
+		props:["datas"],
 		data(){
 			return{
-				imgesList:[{
-					id:1,
-					url:require("../../../images/Home/banner.jpg")
-				},
-				{
-					id:2,
-					url:require("../../../images/Home/banner.jpg")
-				},
-				{
-					id:3,
-					url:require("../../../images/Home/banner.jpg")
-				}],
 				swiperOption: {
 					pagination: {
 					            el: '.swiper-pagination'
 					          },
 					          autoplay:{
-					          	stopOnLastSlide:true,
+					          	stopOnLastSlide:false,
 					          	delay:2000,
 					          	disableOnInteraction:false
 					          },
@@ -55,9 +44,9 @@
 		width:750px;
 		height:474px;
 	}
-	.banner .imges{
-		width: inherit;
-		height: inherit;
+	.banner .swiper-slide .image-item {
+		width: 750px;
+		height: 474px;
 	}
 	.banner >>> .swiper-pagination-bullet{
 		width: 20px;

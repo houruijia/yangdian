@@ -9,7 +9,7 @@
 				<span>库存123456件</span>
 				<span>请选择商品属性</span>
 			</div>
-			<span class="close iconfont">&#xe6a4;</span>
+			<span class="close iconfont">&#xe68e;</span>
 		</div>
 		<div class="buyNum">
 			<span>购买数量</span>

@@ -364,7 +364,6 @@
 		// better-scroll会将点击事件去掉，如果滚动部分需要有点击事件，需要在参数里加上click：true。同时，在PC上或某些手机端，由于未成功将touchend事件move掉，点击事件会执行两次
 		methods:{
 			handelClick(i){
-				this.current = i
 				if (!event._constructed) {
 					return
 				}else{

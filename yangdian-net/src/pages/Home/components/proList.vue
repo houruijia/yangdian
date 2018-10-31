@@ -1,14 +1,14 @@
 <template>
 	<div class="proList">
 		<h2>
-			<span class="iconfont" v-html="titleIcon"></span>
-			<span class="title">{{title}}</span>
+			<span class="iconfont" v-html="info.titleIcon"></span>
+			<span class="title">{{info.title}}</span>
 		</h2>
 		<swiper :options="swiperOption" tag="ul" class="proList_ul">
 				<swiper-slide 
 				tag="li"
 				class="proList_li"
-				v-for="(items,index) of proList"
+				v-for="(items,index) of info.proList"
 				:key="index"
 				>
 					<ul class="proList_items">
@@ -17,9 +17,9 @@
 						v-for="item of items.listArray"
 						:key="item.id"
 						>
-							<router-link to="/">
+							<router-link to="/ProDetails">
 								<div class="image">
-									<img :src="item.imgUrl">
+									<img :src="require(`@/images/Home/${item.imgUrl}.jpg`)">
 								</div>
 								<div class="price">
 									<span class="new_price">{{item.new_price |floatNum|rmb}}</span>
@@ -36,17 +36,13 @@
 	</div>
 </template>
 <script>
-	import 'swiper/dist/css/swiper.css'
 	import {swiper,swiperSlide} from 'vue-awesome-swiper'
 	export default{
 		name:"proList",
 		props:["info"],
 		data(){
 			return{
-				swiperOption:{},
-				proList:this.info.proList,
-				titleIcon:this.info.titleIcon,
-				title:this.info.title
+				swiperOption:{}
 			}
 		},
 		components: {

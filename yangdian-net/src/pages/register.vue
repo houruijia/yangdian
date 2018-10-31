@@ -1,7 +1,7 @@
 <template>
 	<div class="register">
 		<vHeader>
-			<template slot="left"><span class="iconfont">&lt;</span></template>
+			<template slot="left"><span class="iconfont">&#xe60e;</span></template>
 			<template slot="center"><span>注册</span></template>
 			<template slot="right"><span>登录</span></template>
 		</vHeader>
@@ -9,18 +9,18 @@
 			<form>
 				<div class="box">
 					<label for="phone">手机号：</label>
-					<input type="text" id="phone">
+					<input type="text" id="phone" v-model="account">
 				</div>
 				<div class="box password">
 					<label for="password">密码：</label>
-					<input type="text" id="password">
+					<input type="text" id="password" v-model="password">
 				</div>
 				<div class="box code">
 					<label for="code">验证码：</label>
-					<input type="text" id="code">
+					<input type="text" id="code" v-model="code">
 					<img ref="codeImage" @click="reflash()" src="http://api.imecho.cn/dodiapi/code.php?n=4&info=30$80$40">
 				</div>
-				<input class="next" type="submit" value="下一步">
+					<input class="next" type="submit" value="下一步" @click.prevent="handelSubmit()">
 				<div class="term">
 					<input type="checkbox">
 					<span>我已阅读并同意使用条款和隐私政策</span>
@@ -35,6 +35,33 @@
 		name:"register",
 		components:{
 			vHeader
+		},
+		data(){
+			return{
+				account:"",
+				password:"",
+				code:""
+			}
+
+		},
+		methods:{
+			handelSubmit(){
+				var xhr = new XMLHttpRequest() //创建对象
+				xhr.withCredentials = true
+				xhr.onreadystatechange=function() //响应
+					{
+						if (xhr.readyState==4 && xhr.status==200)
+						{
+							window.console.log(xhr.responseText)
+						}
+					}
+				xhr.open("post","http://api.imecho.cn/dodiapi/reg.php",true)
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded") //请求头
+				xhr.send("account="+this.account+"&password="+this.password)
+			},
+			reflash(){
+				this.$refs.codeImage.attributes.src.nodeValue="http://api.imecho.cn/dodiapi/code.php?n=4&info=30$80$40"
+			}
 		}
 	}
 </script>
@@ -58,7 +85,7 @@
 		color: #333333;
 	}
 	.content form .password input{
-		height: 59px;
+		height: 124px;
 	}
 	.content form .password label{
 		letter-spacing: 11px;

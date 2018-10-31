@@ -2,7 +2,8 @@
 	<div class="shopCar">
 		<div class="header">
 			<div class="left">
-				<span class="iconfont">&#xe606;</span>
+				<router-link to="/Classify">
+					<span class="iconfont">&#xe60e;</span></router-link>
 				<span class="title">购物车</span>
 			</div>
 		</div>
